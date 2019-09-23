@@ -1,4 +1,4 @@
-# beautiful-generative-experience
+# Beautiful Generative Experience
 
 ## What is the project about?
 
