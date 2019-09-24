@@ -20,7 +20,7 @@ public class FPController : MonoBehaviour
     public float pitchAngleClamp = 60f;
     private float rotX;
     private float rotY;
-    float xAxisRotation = 0;
+    
 
     private void Start()
     {
