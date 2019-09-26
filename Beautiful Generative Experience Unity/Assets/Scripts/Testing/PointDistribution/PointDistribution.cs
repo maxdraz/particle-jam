@@ -7,6 +7,8 @@ public class PointDistribution : MonoBehaviour
     public int maxPoints = 5;
     public float turnFraction = 1.61f;
     public float radius = 1f;
+    public float speed = 0.001f;
+    private const float GOLDEN_RATIO = 1.61803399f;
     [Range(0,1)]
     public float smoothing =0.01f;
     public GameObject pointPrefab;
@@ -17,13 +19,17 @@ public class PointDistribution : MonoBehaviour
     {
         points = GeneratePoints(turnFraction,radius,maxPoints);
 
-        StartCoroutine(DrawPoints(0.2f));
+        StartCoroutine(DrawPoints(0.1f));
     }
 
     // Update is called once per frame
     void Update()
     {
-        HandleInput(Input.GetAxis("Horizontal"));
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            turnFraction = GOLDEN_RATIO;
+        }
+        HandleInput(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         UpdatePoints(ref points, turnFraction);
         UpdateObjects(ref objects, points);
 
@@ -110,16 +116,25 @@ public class PointDistribution : MonoBehaviour
         }
     }
 
-    private void HandleInput(float turnFractionAxis)
+    private void HandleInput(float turnFractionAxis, float radiusAxis)
     {
         if (turnFractionAxis > 0)
         {
-            turnFraction *= 1.00001f;
+            turnFraction *= 1+speed;
         }
 
         if (turnFractionAxis <0)
         {
-            turnFraction *= 0.99999f;
+            turnFraction *= 1 - speed;
+        }
+
+        if(radiusAxis > 0)
+        {
+            radius *= 1.01f;
+        }
+        if (radiusAxis < 0)
+        {
+            radius *= 0.99f;
         }
     }
 }
