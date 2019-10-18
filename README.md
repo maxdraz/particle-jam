@@ -8,7 +8,7 @@
 - Choosing multiple different experiences.
 
 ### Researched topics
-[ECS](https://www.youtube.com/playlist?list=PLzDRvYVwl53s40yP5RQXitbT--IRcHqba)
+* [ECS](https://www.youtube.com/playlist?list=PLzDRvYVwl53s40yP5RQXitbT--IRcHqba)
 
 ## What I coded myself
 
