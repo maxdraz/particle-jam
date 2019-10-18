@@ -6,7 +6,7 @@ I plan to create an application that brings the user into an expressive and hypn
 ### Features planned
 - Jumping to interesting geometrical patterns at the press of a button.
 - Persistant custom presets - customise rotation speed, colour pallette, sensitivity to audio.
-- Ability to toggle between multiple visual stlyles.
+- Ability to toggle between multiple stlyles of visualisation.
 - ECS for performance and huge number of particles.
 
 ### Researched topics
