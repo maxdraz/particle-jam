@@ -23,7 +23,7 @@ I plan to create an application that brings the user into an expressive and hypn
 * [Interesting patterns achieved with graphs](https://www.youtube.com/watch?v=pAMgUB51XZA)
 
 ### Progress so far
-You can check out the fruits of my code so far in this [video](https://www.youtube.com/watch?v=GV9sL5xkrDM) :)
+You can check out the fruits of my code so far in this [here](https://www.youtube.com/watch?v=GV9sL5xkrDM) :)
 
 ## What I coded myself
 
