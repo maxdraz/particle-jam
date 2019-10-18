@@ -16,6 +16,8 @@
 * [Mathematical rose patterns](https://www.youtube.com/watch?v=f5QBExMNB1I)
 * [Raymarching](https://www.youtube.com/watch?v=Cp5WWtMoeKg)
 * [Prime number spirals](https://www.youtube.com/watch?v=EK32jo7i5LQ)
+* [Hilbert's curve](https://www.youtube.com/watch?v=3s7h2MHQtxc)
+* [Flow fields](https://www.youtube.com/watch?v=rB83DpBJQsE)
 * [Interesting patterns achieved with graphs](https://www.youtube.com/watch?v=pAMgUB51XZA)
 
 ## What I coded myself
