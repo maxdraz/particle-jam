@@ -24,7 +24,7 @@ I plan to create an application that brings the user into a hypnotic world of be
 
 ### Progress so far
 Check out what I coded so far in this [video](https://www.youtube.com/watch?v=GV9sL5xkrDM) :)
-(More HD version can be found in 'Progress video' folder)
+* More HD version can be found in 'Progress video' folder
 
 ## What I coded myself
 
