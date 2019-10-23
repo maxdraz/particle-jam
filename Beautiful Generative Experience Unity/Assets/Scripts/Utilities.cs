@@ -32,4 +32,11 @@ public static class Utilities
 
         return points;
     }
+
+    public static Vector3 GetDir(Vector3 from, Vector3 to)
+    {
+        Vector3 dir = to - from;
+        dir.Normalize();
+        return dir;
+    }
 }
