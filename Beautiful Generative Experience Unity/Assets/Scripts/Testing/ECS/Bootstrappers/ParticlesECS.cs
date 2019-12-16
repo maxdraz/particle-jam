@@ -21,6 +21,10 @@ public class ParticlesECS : MonoBehaviour
     [Range(0,1)][SerializeField] public float smoothing = 0.007f;
     [SerializeField]private List<float3> points;
    
+    public static ParticlesECS GetInstance() // used to reference the instance from other scripts
+    {
+        return instance;
+    }
     
 
     private void Awake()
