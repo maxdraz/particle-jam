@@ -27,6 +27,7 @@ public class ParticlesECS : MonoBehaviour
     public float speedSlow = 0.0001f;
     public float speedNormal = 0.01f;
     public float speedFast = 1f;
+    [SerializeField] private float speedCurrent = 0.01f;
     [Range(0,1)][SerializeField] public float smoothing = 0.007f;
     public List<float3> points;
 
@@ -173,17 +174,18 @@ public class ParticlesECS : MonoBehaviour
 
         SwitchModes();
         ControlMusic();
-        ChangeSpeeds();
+        ChangeTurnSpeed();
+        ExitApplication();
     }
 
     private void TurnClockwise()
     {
-        turnFraction *= 1 + speedNormal;
+        turnFraction *= 1 + speedCurrent* Time.deltaTime;
     }
 
     private void TurnAnticlockwise()
     {
-        turnFraction *= 1 - speedNormal;
+        turnFraction *= 1 - speedCurrent* Time.deltaTime;
     }
 
     private void SwitchModes()
@@ -224,11 +226,30 @@ public class ParticlesECS : MonoBehaviour
         radius = 0.0381f + (0.1f * AudioAnalyser.freqBands[1]);
     }
 
-    private void ChangeSpeeds()
+    private void ChangeTurnSpeed()
     {
-
+        if (Input.GetAxis("Triggers") > 0){
+            //go faster
+            speedCurrent = speedFast;
+        }
+        else if (Input.GetAxis("Triggers") < 0)
+        {
+          //go slow
+         speedCurrent = speedSlow;
+        }
+        else
+        {
+            speedCurrent = speedNormal;
+        }
     }
 
+    private void ExitApplication()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+    }
     //public class ParticleMoveSystem : JobComponentSystem
     //{
     //    private struct MoveJob : IJobForEachWithEntity<Particle, Translation>

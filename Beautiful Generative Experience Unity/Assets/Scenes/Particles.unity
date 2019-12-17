@@ -1178,7 +1178,12 @@ PrefabInstance:
     - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
         type: 3}
       propertyPath: rotateAfterBars
-      value: 2
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
+        type: 3}
+      propertyPath: turnFraction
+      value: 1.618034
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48881f07aa0b97940a5680c67e3e4c7c, type: 3}
