@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicClip: {fileID: 8300000, guid: 73745b0f1cdb4e244aa8127eb702c25f, type: 3}
-  cubeVisualisation: 1
+  cubeVisualisation: 0
   cubes: []
   mat: {fileID: 2100000, guid: e8dc21fe6fed1344db0634aec425ca9f, type: 2}
   songBPM: 99
@@ -1115,11 +1115,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ParticlesECS
       objectReference: {fileID: 0}
-    - target: {fileID: 3927263117749198036, guid: 48881f07aa0b97940a5680c67e3e4c7c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8062327802660988288, guid: 48881f07aa0b97940a5680c67e3e4c7c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1177,33 +1172,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
         type: 3}
-      propertyPath: maxParticles
-      value: 10000
+      propertyPath: bpm
+      value: 99
       objectReference: {fileID: 0}
     - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
         type: 3}
-      propertyPath: speed
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
-        type: 3}
-      propertyPath: turnFraction
-      value: 714.0003
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
-        type: 3}
-      propertyPath: countBPM
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
-        type: 3}
-      propertyPath: mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
-        type: 3}
-      propertyPath: controlMode
-      value: 1
+      propertyPath: rotateAfterBars
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48881f07aa0b97940a5680c67e3e4c7c, type: 3}

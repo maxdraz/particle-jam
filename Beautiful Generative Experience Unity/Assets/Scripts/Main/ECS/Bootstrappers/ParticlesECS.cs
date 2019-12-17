@@ -10,18 +10,32 @@ using Unity.Jobs;
 
 public class ParticlesECS : MonoBehaviour
 {
+    
     public static ParticlesECS instance;
-    private EntityManager entityManager;
+    private EntityManager entityManager;    
     public enum ControlMode { CONTROLLER, AUDIO_REACTIVE };
     public ControlMode controlMode = ControlMode.CONTROLLER;
+
+    [Header("General")]
     [SerializeField] private Mesh mesh;
     [SerializeField] private Material mat;
     [SerializeField] private int maxParticles = 1000;
     [SerializeField] private float turnFraction = 1.618034f;
     [SerializeField] private float radius = 0.038f;
-    public float speed = 0.0001f;
+
+    [Header("Turning Speeds and Variables")]
+    public float speedSlow = 0.0001f;
+    public float speedNormal = 0.01f;
+    public float speedFast = 1f;
     [Range(0,1)][SerializeField] public float smoothing = 0.007f;
-    public List<float3> points;   
+    public List<float3> points;
+
+    [Header("Audio Reactivity Variables")]
+    [SerializeField] private int bpm =99;
+    [SerializeField] private int beatsPerBar = 4;
+    [SerializeField] private int rotateAfterBars = 4;
+
+
    
     public static ParticlesECS GetInstance() // used to reference the instance from other scripts
     {
@@ -52,9 +66,29 @@ public class ParticlesECS : MonoBehaviour
         StartCoroutine(SpawnParticles(0.00001f));
         //SpawnParticles();
 
-        StartCoroutine(RotateWithBPM());
+       // StartCoroutine(RotateWithBPM(AudioAnalyser.GetInstance().songBPM, 4,4));
 
 
+    }
+
+    private IEnumerator RotateWithBPM(int bpm, int beatsInBar, int numBars)
+    {
+        while (true)
+        {
+
+            float timeDelay = (60f / (float)bpm) * ((float)beatsInBar * (float)numBars); //code will execute every number of seconds it takes to play 4 bars in the song's tempo
+
+            if (controlMode == ControlMode.AUDIO_REACTIVE)
+            {
+                yield return new WaitForSeconds(timeDelay);
+
+                TurnClockwise();
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 
     private void CreateParticle(float3 spawnPos, int i)
@@ -101,9 +135,14 @@ public class ParticlesECS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       HandleInput(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+       HandleInput(Input.GetAxis("Horizontal"), Input.GetAxis("Right Vertical"));
        UpdatePoints();
-       ReactToAudio();
+
+       if (controlMode == ControlMode.AUDIO_REACTIVE)
+       {
+          ReactToAudio();
+       }
+      
     }
 
     private void UpdatePoints()
@@ -132,46 +171,62 @@ public class ParticlesECS : MonoBehaviour
             radius *= 0.99f;
         }
 
-
+        SwitchModes();
+        ControlMusic();
+        ChangeSpeeds();
     }
 
     private void TurnClockwise()
     {
-        turnFraction *= 1 + speed;
+        turnFraction *= 1 + speedNormal;
     }
 
     private void TurnAnticlockwise()
     {
-        turnFraction *= 1 - speed;
+        turnFraction *= 1 - speedNormal;
     }
 
     private void SwitchModes()
     {
-        //if(Input.ge)
+        
+        if(Input.GetButton("Left Bumper") && Input.GetButtonDown("X"))
+        {
+           if(controlMode == ControlMode.CONTROLLER)
+            {
+                controlMode = ControlMode.AUDIO_REACTIVE;
+                StartCoroutine(RotateWithBPM(AudioAnalyser.GetInstance().songBPM, beatsPerBar, rotateAfterBars));
+            }
+            else
+            {
+                controlMode = ControlMode.CONTROLLER;
+            }
+        }
+    }
+
+    private void ControlMusic()
+    {
+        // Playing and pausing
+        if(Input.GetButton("Left Bumper") && Input.GetButtonDown("A"))
+        {
+            AudioAnalyser.GetInstance().TogglePlayback();
+        }
+
+        // Stopping
+        if (Input.GetButton("Left Bumper") && Input.GetButtonDown("B"))
+        {
+            AudioAnalyser.GetInstance().StopPlayback();
+        }
     }
 
     private void ReactToAudio()
     {
-        float currentRadius = radius;
+        
         radius = 0.0381f + (0.1f * AudioAnalyser.freqBands[1]);
     }
 
-    private IEnumerator RotateWithBPM()
+    private void ChangeSpeeds()
     {
-        while (true)
-        {
-            int bpm = 99;
-            int beatsInBar = 4;
-            int numBars = 4;
-            float timeDelay = (60f / (float)bpm) * ((float)beatsInBar * (float)numBars); //code will execute every number of seconds it takes to play 4 bars in the song's tempo
-            print(timeDelay);
-            if (controlMode == ControlMode.AUDIO_REACTIVE)
-            {
-                yield return new WaitForSeconds(9f);
-               
-                TurnClockwise();
-            }
-        }
+
     }
 
     //public class ParticleMoveSystem : JobComponentSystem

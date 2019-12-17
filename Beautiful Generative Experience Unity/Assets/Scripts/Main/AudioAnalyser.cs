@@ -39,21 +39,7 @@ public class AudioAnalyser : MonoBehaviour
     private void Start()
     {
         samples = new float[512];
-        freqBands = new float[8];
-        cubes = new GameObject[freqBands.Length]; 
-
-        if (cubeVisualisation)
-        {
-            for(int i = 0; i<freqBands.Length; i++)
-            {
-                GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                cube.transform.position = new Vector3(transform.position.x + (2f * i), transform.position.y, transform.position.z);
-                cube.GetComponent<MeshRenderer>().material = mat;
-                Material cubeMat = cube.GetComponent<MeshRenderer>().material;                
-                cubeMat.color = Color.HSVToRGB(i / samples.Length, i / samples.Length, i / samples.Length);
-                cubes[i] = cube;
-            }
-        }
+        freqBands = new float[8];      
     }
 
     // Update is called once per frame
@@ -64,7 +50,7 @@ public class AudioAnalyser : MonoBehaviour
             GetSpectrumData();
             MakeFrequencyBands();
         }
-        VisualiseSpectrumData();
+      
     }
 
     private void GetSpectrumData()
@@ -97,20 +83,19 @@ public class AudioAnalyser : MonoBehaviour
             freqBands[i] = average * 10;
             
         }
-    }
+    }    
 
-    private void VisualiseSpectrumData()
+    public void TogglePlayback()
     {
-        for(int i = 0; i< freqBands.Length; i++)
+        if (!audioSource.isPlaying)
         {
-            cubes[i].transform.localScale = new Vector3(1, 1+ (freqBands[i] * 10f),1);
+          audioSource.Play();
         }
-        
-    }
-
-    public void Play()
-    {
-        audioSource.Play();
+        else
+        {
+            audioSource.Pause();
+        }
+       
     }
 
     public void Pause()
@@ -118,31 +103,31 @@ public class AudioAnalyser : MonoBehaviour
         audioSource.Pause();
     }
 
-    public void Stop()
+    public void StopPlayback()
     {
         audioSource.Stop();
     }
 
-    public void OnGUI()
-    {
-        if (!audioSource.isPlaying)
-        {
-            if (GUI.Button(new Rect(10, 10, 150, 50), "Play"))
-            {
-                Play();
-            }
-        }
-        else
-        {
-            if (GUI.Button(new Rect(10, 10, 150, 50), "Pause"))
-            {
-                Pause();
-            }
-        }
+    //public void OnGUI()
+    //{
+    //    if (!audioSource.isPlaying)
+    //    {
+    //        if (GUI.Button(new Rect(10, 10, 150, 50), "Play"))
+    //        {
+    //            TogglePlayback();
+    //        }
+    //    }
+    //    else
+    //    {
+    //        if (GUI.Button(new Rect(10, 10, 150, 50), "Pause"))
+    //        {
+    //            Pause();
+    //        }
+    //    }
         
-        if (GUI.Button(new Rect(10, 10 + 50, 150, 50), "Stop"))
-        {
-            Stop();
-        }
-    }
+    //    if (GUI.Button(new Rect(10, 10 + 50, 150, 50), "Stop"))
+    //    {
+    //        StopPlayback();
+    //    }
+    //}
 }

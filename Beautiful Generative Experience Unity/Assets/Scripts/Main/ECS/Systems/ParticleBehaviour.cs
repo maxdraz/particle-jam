@@ -21,7 +21,7 @@ public class ParticleBehaviour : ComponentSystem
             float3 currentPos = translation.Value;
             float3 targetPos = bootstrapper.points[particleIndex];
             
-            translation.Value = new float3(math.lerp(currentPos, targetPos, bootstrapper.speed));            
+            translation.Value = new float3(math.lerp(currentPos, targetPos, bootstrapper.speedNormal));            
 
         });
     }

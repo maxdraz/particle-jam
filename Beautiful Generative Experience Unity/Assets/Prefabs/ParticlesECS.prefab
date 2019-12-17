@@ -43,8 +43,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69b83748cdf769d4fb8a3f438fb5797f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controlMode: 0
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   mat: {fileID: 2100000, guid: 453149c39f8e07d44bc41addc3becdf1, type: 2}
-  maxParticles: 1000
-  turnFraction: 1.618034
+  maxParticles: 10000
+  turnFraction: 714.0003
   radius: 0.038
+  speedSlow: 0.0001
+  speedNormal: 0.01
+  speedFast: 1
+  smoothing: 0.007
+  points: []
+  bpm: 0
+  beatsPerBar: 4
+  rotateAfterBars: 4
