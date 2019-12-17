@@ -17,9 +17,9 @@ public class ParticlesECS : MonoBehaviour
     [SerializeField] private int maxParticles = 1000;
     [SerializeField] private float turnFraction = 1.618034f;
     [SerializeField] private float radius = 0.038f;
-    [SerializeField] private float speed = 0.0001f;
+    public float speed = 0.0001f;
     [Range(0,1)][SerializeField] public float smoothing = 0.007f;
-    [SerializeField]private List<float3> points;
+    public List<float3> points;
    
     public static ParticlesECS GetInstance() // used to reference the instance from other scripts
     {
@@ -47,16 +47,13 @@ public class ParticlesECS : MonoBehaviour
         //generate points
         points = Utilities.GenerateTurnFractionPoints(new float3(0,0,0), turnFraction, radius, maxParticles);
         //spawn entities at points
-        for (int i = 0; i < points.Count; i++)
-        {            
-            SpawnParticle(points[i]);
-
-        }
+        //StartCoroutine(SpawnParticles(0.00001f));
+        SpawnParticles();
 
 
     }
 
-    private void SpawnParticle(float3 spawnPos)
+    private void CreateParticle(float3 spawnPos, int i)
     {
         EntityArchetype particleArchetype = entityManager.CreateArchetype(
             typeof(Particle),
@@ -67,6 +64,7 @@ public class ParticlesECS : MonoBehaviour
 
         Entity particle = entityManager.CreateEntity(particleArchetype);
 
+        entityManager.SetComponentData(particle, new Particle { index = i });
         entityManager.SetComponentData(particle, new Translation { Value = spawnPos });
         entityManager.SetSharedComponentData(particle, new RenderMesh
         {
@@ -74,6 +72,26 @@ public class ParticlesECS : MonoBehaviour
             material = mat
         });
 
+    }
+
+    private IEnumerator SpawnParticles(float delay)
+    {
+        for (int i = 0; i < points.Count; i++)
+        {
+            CreateParticle(points[i], i);
+            yield return new WaitForSeconds(delay);
+
+        }
+
+    }
+
+    private void SpawnParticles()
+    {
+        for (int i = 0; i < points.Count; i++)
+        {
+            CreateParticle(points[i], i);         
+
+        }
     }
 
     // Update is called once per frame

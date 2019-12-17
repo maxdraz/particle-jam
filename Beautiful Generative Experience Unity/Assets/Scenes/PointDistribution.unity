@@ -149,12 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adfff9428f89d584a9ea34c72eb9fb02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 1
-  turnFraction: 0.5
-  radius: 0
-  sphereRadius: 0.2
-  hue: 0
-  objects: []
+  cooldown: 5
 --- !u!4 &407536799
 Transform:
   m_ObjectHideFlags: 0
@@ -643,6 +638,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxParticles
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 1256432262616848697, guid: 48881f07aa0b97940a5680c67e3e4c7c,
+        type: 3}
+      propertyPath: speed
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48881f07aa0b97940a5680c67e3e4c7c, type: 3}
