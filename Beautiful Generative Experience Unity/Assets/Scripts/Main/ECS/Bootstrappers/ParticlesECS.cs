@@ -23,7 +23,7 @@ public class ParticlesECS : MonoBehaviour
     [SerializeField] private float turnFraction = 1.618034f;
     [SerializeField] private float radius = 0.038f;
 
-    [Header("Turning Speeds and Variables")]
+    [Header("Turning Speeds and Variables (L stick + LT or RT)")]
     public float speedSlow = 0.0001f;
     public float speedNormal = 0.01f;
     public float speedFast = 1f;
@@ -31,7 +31,7 @@ public class ParticlesECS : MonoBehaviour
     [Range(0,1)][SerializeField] public float smoothing = 0.007f;
     public List<float3> points;
 
-    [Header("Audio Reactivity Variables")]
+    [Header("Audio Reactivity Variables (LB + X to enter this mode)")]
     [SerializeField] private int bpm =99;
     [SerializeField] private int beatsPerBar = 4;
     [SerializeField] private int rotateAfterBars = 4;
@@ -196,7 +196,7 @@ public class ParticlesECS : MonoBehaviour
            if(controlMode == ControlMode.CONTROLLER)
             {
                 controlMode = ControlMode.AUDIO_REACTIVE;
-                StartCoroutine(RotateWithBPM(AudioAnalyser.GetInstance().songBPM, beatsPerBar, rotateAfterBars));
+                StartCoroutine(RotateWithBPM(bpm, beatsPerBar, rotateAfterBars));
             }
             else
             {
@@ -249,6 +249,11 @@ public class ParticlesECS : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void UpdateBPM()
+    {
+        bpm = Mathf.RoundToInt(BPMFinder.bpm);
     }
     //public class ParticleMoveSystem : JobComponentSystem
     //{
