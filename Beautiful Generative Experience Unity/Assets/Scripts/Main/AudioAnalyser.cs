@@ -9,9 +9,11 @@ public class AudioAnalyser : MonoBehaviour
     [SerializeField] private AudioClip musicClip;
     private AudioSource audioSource;   
     public static float[] samples;
+    public static float[] freqBands;
     [SerializeField] private bool cubeVisualisation;
     [SerializeField]private GameObject[] cubes;
     [SerializeField] private Material mat;
+    [SerializeField] public int songBPM = 99;
 
     public static AudioAnalyser GetInstance()
     {
@@ -36,15 +38,16 @@ public class AudioAnalyser : MonoBehaviour
 
     private void Start()
     {
-        samples = new float[64];
-        cubes = new GameObject[samples.Length]; 
+        samples = new float[512];
+        freqBands = new float[8];
+        cubes = new GameObject[freqBands.Length]; 
 
         if (cubeVisualisation)
         {
-            for(int i = 0; i<samples.Length; i++)
+            for(int i = 0; i<freqBands.Length; i++)
             {
                 GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                cube.transform.position = new Vector3(0 + (0.5f * i), 0, 0);
+                cube.transform.position = new Vector3(transform.position.x + (2f * i), transform.position.y, transform.position.z);
                 cube.GetComponent<MeshRenderer>().material = mat;
                 Material cubeMat = cube.GetComponent<MeshRenderer>().material;                
                 cubeMat.color = Color.HSVToRGB(i / samples.Length, i / samples.Length, i / samples.Length);
@@ -59,6 +62,7 @@ public class AudioAnalyser : MonoBehaviour
         if (audioSource.isPlaying)
         {
             GetSpectrumData();
+            MakeFrequencyBands();
         }
         VisualiseSpectrumData();
     }
@@ -68,11 +72,38 @@ public class AudioAnalyser : MonoBehaviour
         audioSource.GetSpectrumData(samples, 0, FFTWindow.Blackman);
     }
 
+    private void MakeFrequencyBands()
+    {
+        int count = 0;
+
+        for(int i=0; i <8; i++)
+        {
+            float average = 0;
+            int sampleCount = (int)Mathf.Pow(2, i) * 2;
+
+            if(i == 7)
+            {
+                sampleCount += 2;
+            }
+
+            for(int j=0; j <sampleCount; j++)
+            {
+                average += samples[count] * (count +1);
+                count++;
+            }
+
+            average /= count;
+
+            freqBands[i] = average * 10;
+            
+        }
+    }
+
     private void VisualiseSpectrumData()
     {
-        for(int i = 0; i< samples.Length; i++)
+        for(int i = 0; i< freqBands.Length; i++)
         {
-            cubes[i].transform.localScale = new Vector3(1, 1+ (samples[i] * 100f),1);
+            cubes[i].transform.localScale = new Vector3(1, 1+ (freqBands[i] * 10f),1);
         }
         
     }

@@ -12,6 +12,8 @@ public class ParticlesECS : MonoBehaviour
 {
     public static ParticlesECS instance;
     private EntityManager entityManager;
+    public enum ControlMode { CONTROLLER, AUDIO_REACTIVE };
+    public ControlMode controlMode = ControlMode.CONTROLLER;
     [SerializeField] private Mesh mesh;
     [SerializeField] private Material mat;
     [SerializeField] private int maxParticles = 1000;
@@ -19,7 +21,7 @@ public class ParticlesECS : MonoBehaviour
     [SerializeField] private float radius = 0.038f;
     public float speed = 0.0001f;
     [Range(0,1)][SerializeField] public float smoothing = 0.007f;
-    public List<float3> points;
+    public List<float3> points;   
    
     public static ParticlesECS GetInstance() // used to reference the instance from other scripts
     {
@@ -47,8 +49,10 @@ public class ParticlesECS : MonoBehaviour
         //generate points
         points = Utilities.GenerateTurnFractionPoints(new float3(0,0,0), turnFraction, radius, maxParticles);
         //spawn entities at points
-        //StartCoroutine(SpawnParticles(0.00001f));
-        SpawnParticles();
+        StartCoroutine(SpawnParticles(0.00001f));
+        //SpawnParticles();
+
+        StartCoroutine(RotateWithBPM(AudioAnalyser.instance.songBPM, 4,4));
 
 
     }
@@ -99,6 +103,7 @@ public class ParticlesECS : MonoBehaviour
     {
         HandleInput(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         UpdatePoints();
+        ReactToAudio();
     }
 
     private void UpdatePoints()
@@ -110,12 +115,12 @@ public class ParticlesECS : MonoBehaviour
     {
         if (turnFractionAxis > 0)
         {
-            turnFraction *= 1 + speed;
+            TurnClockwise();
         }
 
         if (turnFractionAxis < 0)
         {
-            turnFraction *= 1 - speed;
+            TurnAnticlockwise();
         }
 
         if (radiusAxis > 0)
@@ -125,6 +130,44 @@ public class ParticlesECS : MonoBehaviour
         if (radiusAxis < 0)
         {
             radius *= 0.99f;
+        }
+
+
+    }
+
+    private void TurnClockwise()
+    {
+        turnFraction *= 1 + speed;
+    }
+
+    private void TurnAnticlockwise()
+    {
+        turnFraction *= 1 - speed;
+    }
+
+    private void SwitchModes()
+    {
+        //if(Input.ge)
+    }
+
+    private void ReactToAudio()
+    {
+        float currentRadius = radius;
+        radius = 0.0381f + (0.1f * AudioAnalyser.freqBands[1]);
+    }
+
+    private IEnumerator RotateWithBPM(int bpm, int beatsInBar, int numBars)
+    {
+        while (true)
+        {            
+            float timeDelay = (60 / (float)bpm) * (beatsInBar * numBars); //code will execute every number of seconds it takes to play 4 bars in the song's tempo
+            print((60/(float)bpm));
+            if (controlMode == ControlMode.AUDIO_REACTIVE)
+            {
+                yield return new WaitForSeconds(9f);
+                print("true");
+                TurnClockwise();
+            }
         }
     }
 
