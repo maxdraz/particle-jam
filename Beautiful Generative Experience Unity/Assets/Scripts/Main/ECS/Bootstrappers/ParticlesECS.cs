@@ -52,7 +52,7 @@ public class ParticlesECS : MonoBehaviour
         StartCoroutine(SpawnParticles(0.00001f));
         //SpawnParticles();
 
-        StartCoroutine(RotateWithBPM(AudioAnalyser.instance.songBPM, 4,4));
+        StartCoroutine(RotateWithBPM());
 
 
     }
@@ -101,9 +101,9 @@ public class ParticlesECS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HandleInput(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        UpdatePoints();
-        ReactToAudio();
+       HandleInput(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+       UpdatePoints();
+       ReactToAudio();
     }
 
     private void UpdatePoints()
@@ -156,16 +156,19 @@ public class ParticlesECS : MonoBehaviour
         radius = 0.0381f + (0.1f * AudioAnalyser.freqBands[1]);
     }
 
-    private IEnumerator RotateWithBPM(int bpm, int beatsInBar, int numBars)
+    private IEnumerator RotateWithBPM()
     {
         while (true)
-        {            
-            float timeDelay = (60 / (float)bpm) * (beatsInBar * numBars); //code will execute every number of seconds it takes to play 4 bars in the song's tempo
-            print((60/(float)bpm));
+        {
+            int bpm = 99;
+            int beatsInBar = 4;
+            int numBars = 4;
+            float timeDelay = (60f / (float)bpm) * ((float)beatsInBar * (float)numBars); //code will execute every number of seconds it takes to play 4 bars in the song's tempo
+            print(timeDelay);
             if (controlMode == ControlMode.AUDIO_REACTIVE)
             {
                 yield return new WaitForSeconds(9f);
-                print("true");
+               
                 TurnClockwise();
             }
         }
