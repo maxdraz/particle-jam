@@ -716,13 +716,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290574826}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.16961123, y: 0.020139152, z: -0.017037736, w: 0.98515797}
   m_LocalPosition: {x: 11.95, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 19.565, y: 2.062, z: -1.626}
 --- !u!1 &1379357770
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f74abdd75e1961140bbcbc924eaec22e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicClip: {fileID: 8300000, guid: 73745b0f1cdb4e244aa8127eb702c25f, type: 3}
+  musicClip: {fileID: 8300000, guid: 289e3ff8bf2265247b3feaa7d8881608, type: 3}
   cubeVisualisation: 0
   cubes: []
   mat: {fileID: 2100000, guid: e8dc21fe6fed1344db0634aec425ca9f, type: 2}
