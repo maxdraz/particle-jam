@@ -72,11 +72,11 @@ I'm most proud of the fact that I implemented the particles using pure ECS. I re
 I'm also happy that I was able to create a beautiful experience that surprises me and contains an infinite number of patterns. 
 
 ## Instructions
-###Start playing###  
+###Start playing 
 Unity Editor - Scene found in Assets > Scenes > Particles   
 Build - Launch BeautifulGenerativeExperience.exe
 
-###Keyboard Controls###  
+###Keyboard Controls  
 ***Moving particles***  
 Turning right/ left - right/ left arrow keys  
 Faster rotation - Hold Left Shift while turning  
@@ -90,7 +90,7 @@ Stop song - Backspace
 Toggle audio reactivity - Return  
 Find song's BPM - Hold Alt for a full bar of the song  
 
-###XBOX Controller###    
+###XBOX Controller    
 ***Moving particles***  
 Turning right/ left - Left stick    
 Faster rotation - RT while turning  
@@ -104,7 +104,7 @@ Stop song - LB + B
 Toggle audio reactivity - LB + X  
 Find song's BPM - RB  
 
-###Customisation###  
+###Customisation  
 To tweak variables go to Particles scene and select the ParticlesECS gameobject.
 
 ***ParticlesECS script***
