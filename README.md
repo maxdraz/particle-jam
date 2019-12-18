@@ -64,7 +64,7 @@ The majority of the code used in the final project was coded by me.
 * I modified it to my needs, and added my own custom functions.
 
 **Terrain1.shader**
-* A shader from Bryan Duggan that colours the material based on its position.
+* A [shader](https://github.com/skooter500/GE1-2019-2020/blob/master/GE1Examples2019/Assets/TerrainShader1.shader) from Bryan Duggan that colours the material based on its position.
 
 ## What am I most proud of?
 I'm most proud of the fact that I implemented the particles using pure ECS. I really wanted to deepen my understanding of this efficient way of coding, and this project allowed me to do just that. I feel I now have a good grasp of the basics and am ready to take on further challenges.
