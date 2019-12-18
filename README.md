@@ -27,17 +27,74 @@ I plan to create an application that brings the user into an expressive and hypn
 You can check out the fruits of my code so far in this [video](https://www.youtube.com/watch?v=GV9sL5xkrDM) :)
 
 ## What I coded myself
+The majority of code used in the final version was coded by me.
 
+**ParticlesECS.cs**
+* Acts as a bootstrapper.
+* Contains the Particle archetype.
+* Spawns particles on a coroutine.
+* Handles player input.
+
+**ParticleBehaviour.cs**
+* A component system that acts on anything with a Translation and Particle component.
+* Moves each particle to its designated point.
+
+**Utilities.cs**
+* A static class containing some useful functions, including the algorithm for generating the points for particles.
 
 ## What code did I use from tutorials?
 
+*AudioAnalyser.cs*
 
 ## What am I most proud of?
+I'm most proud of the fact that I implemented the particles using pure ECS. I really wanted to deepen my understanding of this efficient way of coding, and this project allowed me to do just that. I feel I now have a good grasp of the basics and am ready to take on further challenges.
 
+I'm also happy that I was able to create a beautiful experience and that surprises me. 
 
 ## Instructions
+**Start playing**
+Unity Editor - Scene found in Assets > Scenes > Particles 
+Build - Launch BeautifulGenerativeExperience.exe
 
+**Keyboard Controls**
+*Moving particles*
+Turning right/ left - right/ left arrow keys
+Faster rotation - Hold Left Shift while turning
+Slower rotation - Hold Left Ctrl while turning
+Zooming in/ out - up/ down arrow keys
+Jump to preset shape - 1,2,3 keys
+
+*Audio Reactivity*
+Play/ pause song - Space
+Stop song - Backspace
+Toggle audio reactivity - Return
+Find song's BPM - Hold Alt for a full bar of the song
+
+**XBOX Controller**
+*Moving particles*
+Turning right/ left - Left stick 
+Faster rotation - RT while turning
+Slower rotation - LT while turning
+Zooming in/ out - Right stick
+Jump to preset shape - N/A
+
+*Audio Reactivity*
+Play/ pause song - LB + A
+Stop song - LB + B
+Toggle audio reactivity - LB + X
+Find song's BPM - RB
+
+**Customisation**
+To tweak variables go to Particles scene and select the ParticlesECS gameobject.
+
+ParticlesECS script
+* Turn Fraction - decides the intervals at which particles are spawned. Changing this will dictate the starting arrangement of particles.
+* Quick Access Turn Fractions - If you find a magnificent looking arrangement of particles and want to be able to quickly jump to it during your jam, copy the Turn Fraction here to one of the 3 slots.
+* Speed Slow / Normal / Fast - how quickly the particles reach their destinations. Note that numbers of 1 or below work best.
+* BPM - if you already know the BPM of your song, you can input it here without using the BPM Finder.
+* Beats Per Bar - how many crotchets in a bar of the song.
+* Rotate After Bars - dictates how many bars of the song elapse before the particles do an automatic turn (Audio Reactive mode). 
 
 ## Youtube video
 
-
+Final video can be found [here](https://www.youtube.com/watch?v=cGKtmeEuuGU&feature=youtu.be).
