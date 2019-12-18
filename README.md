@@ -101,7 +101,7 @@ Jump to preset shape - N/A
 ***Audio Reactivity***  
 Play/ pause song - LB + A  
 Stop song - LB + B  
-Toggle audio reactivity - LB + X  
+Toggle Audio Reactive mode - LB + X  
 Find song's BPM - RB  
 
 ### Customisation  
