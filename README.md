@@ -69,7 +69,7 @@ The majority of the code used in the final project was coded by me.
 ## What am I most proud of?
 I'm most proud of the fact that I implemented the particles using pure ECS. I really wanted to deepen my understanding of this efficient way of coding, and this project allowed me to do just that. I feel I now have a good grasp of the basics and am ready to take on further challenges.
 
-I'm also happy that I was able to create a beautiful experience and that surprises me. 
+I'm also happy that I was able to create a beautiful experience that surprises me and contains an infinite number of patterns. 
 
 ## Instructions
 ###Start playing###  
