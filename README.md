@@ -37,7 +37,7 @@ The majority of the code used in the final project was coded by me.
 * Controls particles from user input.
 * Handles the behaviours during Audio Reactive mode.
 * Updates new particle positions.
-* Gets spectrum band data from the AudioAnalyser. 
+* Gets frequency band data from the AudioAnalyser. 
 * Communicates with AudioAnalyser to control music playback.
 * Handles exiting the application.
 
