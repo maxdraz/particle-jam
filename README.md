@@ -102,7 +102,7 @@ Jump to preset shape - N/A
 Play/ pause song - LB + A  
 Stop song - LB + B  
 Toggle Audio Reactive mode - LB + X  
-Find song's BPM - RB  
+Find song's BPM - Hold RB for a full bar of the song  
 
 ### Customisation  
 To tweak variables go to Particles scene and select the ParticlesECS gameobject.
