@@ -59,7 +59,7 @@ The majority of the code used in the final project was coded by me.
 
 **AudioAnalyser.cs**
 * Used to get spectrum data form an audio clip.
-* Splits the spectrum data into 8 bands, in order to be more workable.
+* Splits the spectrum data into 8 frequency bands, in order to be more workable.
 * Sourced from this [tutorial series](https://www.youtube.com/playlist?list=PL3POsQzaCw53p2tA6AWf7_AWgplskR0Vo).
 * I modified it to my needs, and added my own custom functions.
 
