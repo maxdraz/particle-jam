@@ -48,7 +48,7 @@ The majority of the code used in the final project was coded by me.
 * A component system that acts on anything with a Translation and Particle component.
 * Moves each particle to its designated point.
 
-**BPM Finder**
+**BPM Finder.cs**
 * Calculates the BPM of a song based on how long the user holds a button.
 * Works for different time signatures.
 
