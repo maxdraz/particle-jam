@@ -108,7 +108,7 @@ Find song's BPM - Hold RB for a full bar of the song
 To tweak variables go to the Particles scene and select the ParticlesECS gameobject.
 
 ***ParticlesECS script***
-* Turn Fraction - decides the intervals at which particles are spawned. Changing this will dictate the starting arrangement of particles.
+* Turn Fraction - decides the fraction of a circle at which new particles are spawned. Changing this will dictate the starting arrangement of particles.
 * Quick Access Turn Fractions - If you find a magnificent looking arrangement of particles and want to be able to quickly jump to it during your jam, copy the Turn Fraction here to one of the 3 slots.
 * Speed Slow / Normal / Fast - how quickly the particles reach their destinations. Note that numbers of 1 or below work best.
 * BPM - if you already know the BPM of your song, you can input it here without using the BPM Finder.
