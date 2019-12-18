@@ -105,7 +105,7 @@ Toggle Audio Reactive mode - LB + X
 Find song's BPM - Hold RB for a full bar of the song  
 
 ### Customisation  
-To tweak variables go to Particles scene and select the ParticlesECS gameobject.
+To tweak variables go to the Particles scene and select the ParticlesECS gameobject.
 
 ***ParticlesECS script***
 * Turn Fraction - decides the intervals at which particles are spawned. Changing this will dictate the starting arrangement of particles.
