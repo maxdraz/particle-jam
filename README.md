@@ -5,7 +5,7 @@ I plan to create an application that brings the user into an expressive and hypn
 
 ### Features planned
 - Jumping to interesting geometrical patterns at the press of a button.
-- Persistant custom presets - customise rotation speed, colour pallette, sensitivity to audio.
+- Persistent custom presets - customise rotation speed, colour pallette, sensitivity to audio.
 - Ability to toggle between multiple stlyles of visualisation.
 - ECS for performance and huge number of particles.
 
@@ -27,7 +27,7 @@ I plan to create an application that brings the user into an expressive and hypn
 Check out an early progress video [here](https://www.youtube.com/watch?v=GV9sL5xkrDM) :)
 
 ## What I coded myself
-The majority of code used in the final project was coded by me.
+The majority of the code used in the final project was coded by me.
 
 **ParticlesECS.cs**
 * Acts as a bootstrapper.
@@ -60,7 +60,7 @@ The majority of code used in the final project was coded by me.
 **AudioAnalyser.cs**
 * Used to get spectrum data form an audio clip.
 * Splits the spectrum data into 8 bands, in order to be more workable.
-* Sourced from this tutorial [series](https://www.youtube.com/playlist?list=PL3POsQzaCw53p2tA6AWf7_AWgplskR0Vo).
+* Sourced from this [tutorial series](https://www.youtube.com/playlist?list=PL3POsQzaCw53p2tA6AWf7_AWgplskR0Vo).
 * I modified it to my needs, and added my own custom functions.
 
 **Terrain1.shader**
