@@ -23,28 +23,48 @@ I plan to create an application that brings the user into an expressive and hypn
 * [Flow fields](https://www.youtube.com/watch?v=rB83DpBJQsE)
 * [Interesting patterns achieved with graphs](https://www.youtube.com/watch?v=pAMgUB51XZA)
 
-### Progress so far
-You can check out the fruits of my code so far in this [video](https://www.youtube.com/watch?v=GV9sL5xkrDM) :)
+### Early progress
+Check out an early progress video [here](https://www.youtube.com/watch?v=GV9sL5xkrDM) :)
 
 ## What I coded myself
-The majority of code used in the final version was coded by me.
+The majority of code used in the final project was coded by me.
 
 **ParticlesECS.cs**
 * Acts as a bootstrapper.
 * Contains the Particle archetype.
 * Spawns particles on a coroutine.
-* Handles player input.
+* Handles user input.
+* Controls particles from user input.
+* Handles the behaviours during Audio Reactive mode.
+* Updates new particle positions.
+* Gets spectrum band data from the AudioAnalyser. 
+* Communicates with AudioAnalyser to control music playback.
+* Handles exiting the application.
+
+**ParticleComponentData.cs**
+* Contains fields relevant to every particle.
 
 **ParticleBehaviour.cs**
 * A component system that acts on anything with a Translation and Particle component.
 * Moves each particle to its designated point.
+
+**BPM Finder**
+* Calculates the BPM of a song based on how long the user holds a button.
+* Works for different time signatures.
 
 **Utilities.cs**
 * A static class containing some useful functions, including the algorithm for generating the points for particles.
 
 ## What code did I use from tutorials?
 
-*AudioAnalyser.cs*
+**AudioAnalyser.cs**
+* Used to get spectrum data form an audio clip.
+* Splits the spectrum data into 8 bands, in order to be more workable.
+* Sourced from this tutorial [series](https://www.youtube.com/playlist?list=PL3POsQzaCw53p2tA6AWf7_AWgplskR0Vo).
+* I modified it to my needs, and added my own custom functions.
+
+**Terrain1.shader**
+* A shader from Bryan Duggan that colours the material based on its position.
 
 ## What am I most proud of?
 I'm most proud of the fact that I implemented the particles using pure ECS. I really wanted to deepen my understanding of this efficient way of coding, and this project allowed me to do just that. I feel I now have a good grasp of the basics and am ready to take on further challenges.
