@@ -53,41 +53,41 @@ I'm also happy that I was able to create a beautiful experience and that surpris
 
 ## Instructions
 **Start playing**  
-Unity Editor - Scene found in Assets > Scenes > Particles 
+Unity Editor - Scene found in Assets > Scenes > Particles   
 Build - Launch BeautifulGenerativeExperience.exe
 
 **Keyboard Controls**  
 ***Moving particles***  
-Turning right/ left - right/ left arrow keys
-Faster rotation - Hold Left Shift while turning
-Slower rotation - Hold Left Ctrl while turning
-Zooming in/ out - up/ down arrow keys
-Jump to preset shape - 1,2,3 keys
+Turning right/ left - right/ left arrow keys  
+Faster rotation - Hold Left Shift while turning  
+Slower rotation - Hold Left Ctrl while turning  
+Zooming in/ out - up/ down arrow keys  
+Jump to preset shape - 1,2,3 keys  
 
-**Audio Reactivity**  
-Play/ pause song - Space
-Stop song - Backspace
-Toggle audio reactivity - Return
-Find song's BPM - Hold Alt for a full bar of the song
+***Audio Reactivity***  
+Play/ pause song - Space  
+Stop song - Backspace  
+Toggle audio reactivity - Return  
+Find song's BPM - Hold Alt for a full bar of the song  
 
 **XBOX Controller**    
-**Moving particles**  
-Turning right/ left - Left stick 
-Faster rotation - RT while turning
-Slower rotation - LT while turning
-Zooming in/ out - Right stick
-Jump to preset shape - N/A
+***Moving particles***  
+Turning right/ left - Left stick    
+Faster rotation - RT while turning  
+Slower rotation - LT while turning  
+Zooming in/ out - Right stick  
+Jump to preset shape - N/A  
 
-**Audio Reactivity**  
-Play/ pause song - LB + A
-Stop song - LB + B
-Toggle audio reactivity - LB + X
-Find song's BPM - RB
+***Audio Reactivity***  
+Play/ pause song - LB + A  
+Stop song - LB + B  
+Toggle audio reactivity - LB + X  
+Find song's BPM - RB  
 
 **Customisation**  
 To tweak variables go to Particles scene and select the ParticlesECS gameobject.
 
-**ParticlesECS script**
+***ParticlesECS script***
 * Turn Fraction - decides the intervals at which particles are spawned. Changing this will dictate the starting arrangement of particles.
 * Quick Access Turn Fractions - If you find a magnificent looking arrangement of particles and want to be able to quickly jump to it during your jam, copy the Turn Fraction here to one of the 3 slots.
 * Speed Slow / Normal / Fast - how quickly the particles reach their destinations. Note that numbers of 1 or below work best.
