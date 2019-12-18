@@ -9,7 +9,7 @@ public class BPMFinder : MonoBehaviour
     [SerializeField] public static float bpm;
     public static UnityEvent OnBPMFound;
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         OnBPMFound.RemoveAllListeners();
     }
@@ -23,7 +23,7 @@ public class BPMFinder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButton("Right Bumper"))
+        if(Input.GetButton("Right Bumper") || Input.GetKey(KeyCode.LeftAlt))
         {
             
             timeTaken += Time.deltaTime;            

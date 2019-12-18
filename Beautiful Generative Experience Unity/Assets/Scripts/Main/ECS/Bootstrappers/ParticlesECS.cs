@@ -22,6 +22,7 @@ public class ParticlesECS : MonoBehaviour
     [SerializeField] private int maxParticles = 1000;
     [SerializeField] private float turnFraction = 1.618034f;
     [SerializeField] private float radius = 0.038f;
+    [SerializeField] private List<float> quickAccessTurnFractions;
 
     [Header("Turning Speeds and Variables (L stick + LT or RT)")]
     public float speedSlow = 0.0001f;
@@ -136,7 +137,7 @@ public class ParticlesECS : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       HandleInput(Input.GetAxis("Horizontal"), Input.GetAxis("Right Vertical"));
+       HandleInput(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
        UpdatePoints();
 
        if (controlMode == ControlMode.AUDIO_REACTIVE)
@@ -176,6 +177,7 @@ public class ParticlesECS : MonoBehaviour
         ControlMusic();
         ChangeTurnSpeed();
         ExitApplication();
+        CustomTurnFractions();
     }
 
     private void TurnClockwise()
@@ -191,7 +193,7 @@ public class ParticlesECS : MonoBehaviour
     private void SwitchModes()
     {
         
-        if(Input.GetButton("Left Bumper") && Input.GetButtonDown("X"))
+        if(Input.GetButton("Left Bumper") && Input.GetButtonDown("X") || Input.GetKeyDown(KeyCode.Return))
         {
            if(controlMode == ControlMode.CONTROLLER)
             {
@@ -208,14 +210,15 @@ public class ParticlesECS : MonoBehaviour
     private void ControlMusic()
     {
         // Playing and pausing
-        if(Input.GetButton("Left Bumper") && Input.GetButtonDown("A"))
+        if(Input.GetButton("Left Bumper") && Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.Space))
         {
             AudioAnalyser.GetInstance().TogglePlayback();
         }
 
         // Stopping
-        if (Input.GetButton("Left Bumper") && Input.GetButtonDown("B"))
+        if (Input.GetButton("Left Bumper") && Input.GetButtonDown("B") || Input.GetKey(KeyCode.Backspace))
         {
+            print("here");
             AudioAnalyser.GetInstance().StopPlayback();
         }
     }
@@ -228,11 +231,11 @@ public class ParticlesECS : MonoBehaviour
 
     private void ChangeTurnSpeed()
     {
-        if (Input.GetAxis("Triggers") > 0){
+        if (Input.GetAxis("Triggers") > 0 || Input.GetKey(KeyCode.LeftShift)){
             //go faster
             speedCurrent = speedFast;
         }
-        else if (Input.GetAxis("Triggers") < 0)
+        else if (Input.GetAxis("Triggers") < 0 || Input.GetKey(KeyCode.LeftControl))
         {
           //go slow
          speedCurrent = speedSlow;
@@ -250,6 +253,27 @@ public class ParticlesECS : MonoBehaviour
             Application.Quit();
         }
     }
+
+    private void CustomTurnFractions()
+    {
+        if (Input.GetButtonDown("A") || Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            print("pressed 1");
+            turnFraction = quickAccessTurnFractions[0];
+        }
+
+        if (Input.GetButtonDown("X") || Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            turnFraction = quickAccessTurnFractions[1];
+        }
+
+        if (Input.GetButtonDown("B") || Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            turnFraction = quickAccessTurnFractions[2];
+        }
+
+    }
+
 
     public void UpdateBPM()
     {

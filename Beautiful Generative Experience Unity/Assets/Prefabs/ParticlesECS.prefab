@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8062327802660988288}
   - component: {fileID: 1256432262616848697}
+  - component: {fileID: 1443163016}
   m_Layer: 0
   m_Name: ParticlesECS
   m_TagString: Untagged
@@ -47,13 +48,32 @@ MonoBehaviour:
   mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
   mat: {fileID: 2100000, guid: 453149c39f8e07d44bc41addc3becdf1, type: 2}
   maxParticles: 10000
-  turnFraction: 714.0003
+  turnFraction: 1.618034
   radius: 0.038
-  speedSlow: 0.0001
+  quickAccessTurnFractions:
+  - 1.618034
+  - 714.0003
+  - 2.000945
+  speedSlow: 0.0005
   speedNormal: 0.01
   speedFast: 1
+  speedCurrent: 0.01
   smoothing: 0.007
   points: []
-  bpm: 0
+  bpm: 99
   beatsPerBar: 4
-  rotateAfterBars: 4
+  rotateAfterBars: 1
+--- !u!114 &1443163016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3927263117749198036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 369a45a91a8da43429c74f6de9ad9d4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeTaken: 0
+  beatsPerBar: 4
