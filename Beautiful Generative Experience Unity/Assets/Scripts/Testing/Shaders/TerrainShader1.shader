@@ -56,7 +56,8 @@
 		void surf (Input IN, inout SurfaceOutputStandard o) {
 			// Albedo comes from a texture tinted by color
 			//fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-			fixed3 c = hsv_to_rgb(float3(IN.worldPos.y / 100 , 1, 1));
+			float f = (((sqrt(pow(IN.worldPos.x, 2) + pow(IN.worldPos.y, 2))) / 50) % 1.0f);
+			fixed3 c = hsv_to_rgb(float3(f , 1, 1));
 
 			o.Albedo = c.rgb;
 
