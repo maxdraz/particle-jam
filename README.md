@@ -57,7 +57,7 @@ Unity Editor - Scene found in Assets > Scenes > Particles
 Build - Launch BeautifulGenerativeExperience.exe
 
 **Keyboard Controls**  
-**Moving particles**  
+***Moving particles***  
 Turning right/ left - right/ left arrow keys
 Faster rotation - Hold Left Shift while turning
 Slower rotation - Hold Left Ctrl while turning
