@@ -39,8 +39,10 @@
         void surf (Input IN, inout SurfaceOutputStandard o) // main funtion that runs on each pixel
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color; 
-            o.Albedo = c.rgb;
+			// colors always between 0 and 1
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color; // get pixel's color from texture and multiplying tints it
+            // 1 - c inverts color
+			o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
