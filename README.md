@@ -2,7 +2,7 @@
 
 [![Particle Jam](https://img.youtube.com/vi/GV9sL5xkrDM/0.jpg)](https://www.youtube.com/watch?v=GV9sL5xkrDM)
 
-(Click image to watch video)
+*Click image to watch video*
 
 ## What is the project about?
 I plan to create an application that brings the user into an expressive and hypnotic world of beautiful visuals, that can be enjoyed to their favourite music. The visuals will be heavily inspired by spirally, interesting, geometric and mathematical patterns. The goal is to provide the user with controls through which they can change and customise the visualisation in real time, jamming along with the music. I would also like there to be an 'auto pilot' mode in which the visualisation will react to the music being played, without need for user input. Users will be able to create and save their own presets or choose from pre-made ones to suit different genres / moods / speeds of music. Perfect setup for VJ-ing.
