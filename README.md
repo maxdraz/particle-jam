@@ -1,6 +1,7 @@
 # Beautiful Generative Experience
 
 [![Particle Jam](https://img.youtube.com/vi/GV9sL5xkrDM/0.jpg)](https://www.youtube.com/watch?v=GV9sL5xkrDM)
+
 (Click image to watch video)
 
 ## What is the project about?
